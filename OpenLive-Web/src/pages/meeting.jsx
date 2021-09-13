@@ -51,7 +51,7 @@ const MeetingPage = () => {
   const routerCtx = useRouter()
   const stateCtx = useGlobalState()
   const mutationCtx = useGlobalMutation()
-  
+
   const localClient = useMemo(() => {
     const client = new RTCClient()
     if (!client._created) {
@@ -203,8 +203,7 @@ const MeetingPage = () => {
         <div className="nav">
           <div className="avatar-container">
             <div className="default-avatar"></div>
-            <div className="avatar-text">Agora Test</div>
-            <div className="like"></div>
+            <div className="avatar-text">Host Name</div>
           </div>
           <Tooltip title="quit">
             <div
@@ -238,24 +237,6 @@ const MeetingPage = () => {
             <div className={classes.menuContainer}>
               {config.host && (
                 <div className={classes.menu}>
-                  <Tooltip title={muteVideo ? 'mute-video' : 'unmute-video'}>
-                    <i
-                      onClick={handleClick('video')}
-                      className={clsx(
-                        classes.customBtn,
-                        muteVideo ? 'mute-video' : 'unmute-video'
-                      )}
-                    />
-                  </Tooltip>
-                  <Tooltip title={muteAudio ? 'mute-audio' : 'unmute-audio'}>
-                    <i
-                      onClick={handleClick('audio')}
-                      className={clsx(
-                        classes.customBtn,
-                        muteAudio ? 'mute-audio' : 'unmute-audio'
-                      )}
-                    />
-                  </Tooltip>
                   <Tooltip title={stateCtx.screen ? 'stop-screen-share' : 'start-screen-share'}>
                     <i
                       onClick={handleClick('screen')}
@@ -267,8 +248,6 @@ const MeetingPage = () => {
                       )}
                     />
                   </Tooltip>
-                  
-                  {/* <i onClick={handleClick('profile')} className={clsx(classes.customBtn, 'show-profile')}/> */}
                 </div>
               )}
             </div>

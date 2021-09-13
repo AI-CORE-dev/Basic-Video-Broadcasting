@@ -20,7 +20,7 @@ const defaultState = {
     uid: 0,
     host: true,
     channelName: '',
-    token: process.env.REACT_APP_AGORA_APP_TOKEN,
+    token: '',
     resolution: '480p',
     ...readDefaultState(),
     microphoneId: '',
@@ -29,8 +29,8 @@ const defaultState = {
   agoraClient: null,
   mode: 'live',
   codec: 'vp8',
-  muteVideo: true,
-  muteAudio: true,
+  muteVideo: false,
+  muteAudio: false,
   screen: false,
   profile: false
   // beauty: false

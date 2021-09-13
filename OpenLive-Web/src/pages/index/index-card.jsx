@@ -156,31 +156,12 @@ export default function IndexCard () {
       flexDirection="column"
     >
       <Link to="/setting" className="setting-btn" />
-      <span className="version">Web SDK Version: {AgoraRTC.VERSION}</span>
-      <a
-        href="https://github.com/AgoraIO/Basic-Video-Broadcasting/tree/master/OpenLive-Web"
-        className="github"
-      ></a>
-      <div className="role-container">
-        <CustomRadio
-          className={classes.radio}
-          value="host"
-          checked={stateCtx.config.host}
-          onClick={handleChange}
-        ></CustomRadio>
-        <CustomRadio
-          className={classes.radio}
-          value="audience"
-          checked={!stateCtx.config.host}
-          onClick={handleChange}
-        ></CustomRadio>
-      </div>
       <Box
         marginTop="92"
         flex="1"
         display="flex"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="space-around"
         flexDirection="column"
       >
         <FormControl className={clsx(classes.input, classes.grid)}>
@@ -196,6 +177,21 @@ export default function IndexCard () {
                 mutationCtx.updateConfig({ channelName: evt.target.value })
               } else {
                 mutationCtx.updateConfig({ channelName: '' })
+              }
+            }}
+          />
+        </FormControl>
+        <FormControl className={clsx(classes.input, classes.grid)}>
+          <InputLabel htmlFor="channelName">Enter TOKEN</InputLabel>
+          <Input
+            id="token"
+            name="token"
+            value={stateCtx.config.token}
+            onChange={(evt) => {
+              if (evt.target.value) {
+                mutationCtx.updateConfig({ token: evt.target.value })
+              } else {
+                mutationCtx.updateConfig({ token: '' })
               }
             }}
           />
